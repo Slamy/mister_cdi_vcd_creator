@@ -180,7 +180,7 @@ process_video() {
     # 3.4 MULTIPLEX
     echo -e "   ${YELLOW}📦 Multiplexing...${NC}"
     echo -e "\n--- MULTIPLEX LOG ---" >> "$LOG_FILE"
-    mplex -f 1 -b 46 -R9 -o "compliant.mpg" "temp_audio.mp2" "temp_video.m1v" >> "$LOG_FILE" 2>&1
+    mplex -f 1 -b 46 -R11 -o "compliant.mpg" "temp_audio.mp2" "temp_video.m1v" >> "$LOG_FILE" 2>&1
 
     # ERROR CHECKING
     if grep -q "data will arrive too late" "$LOG_FILE"; then
