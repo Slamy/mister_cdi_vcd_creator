@@ -180,7 +180,7 @@ process_video() {
     # 3.4 MULTIPLEX
     echo -e "   ${YELLOW}📦 Multiplexing...${NC}"
     echo -e "\n--- MULTIPLEX LOG ---" >> "$LOG_FILE"
-    mplex -f 1 -b 46 -o "compliant.mpg" "temp_audio.mp2" "temp_video.m1v" >> "$LOG_FILE" 2>&1
+    mplex -f 1 -b 46 -R9 -o "compliant.mpg" "temp_audio.mp2" "temp_video.m1v" >> "$LOG_FILE" 2>&1
 
     # ERROR CHECKING
     if grep -q "data will arrive too late" "$LOG_FILE"; then
@@ -197,16 +197,13 @@ process_video() {
   <pvd>
     <volume-id>${CLEAN_NAME}</volume-id>
     <system-id>CD-RTOS CD-BRIDGE</system-id>
-    <application-id>CDI/CDI_VCD.APP;1</application-id>
+    <application-id>CDI/MISTRVCD.APP;1</application-id>
   </pvd>
   <filesystem>
     <folder><name>SEGMENT</name></folder>
     <folder>
       <name>CDI</name>
-      <file src="${CDI_FIX_DIR}/CDI_IMAG.RTF" format="mixed"><name>CDI_IMAG.RTF</name></file>
-      <file src="${CDI_FIX_DIR}/CDI_TEXT.FNT"><name>CDI_TEXT.FNT</name></file>
-      <file src="${CDI_FIX_DIR}/CDI_VCD.APP"><name>CDI_VCD.APP</name></file>
-      <file src="${CDI_FIX_DIR}/CDI_VCD.CFG"><name>CDI_VCD.CFG</name></file>
+      <file src="MISTRVCD.APP"><name>MISTRVCD.APP</name></file>
     </folder>
   </filesystem>
   <sequence-items>
