@@ -228,7 +228,7 @@ EOF
         # 3.7 AUTO-CHD
         if command -v chdman &> /dev/null; then
             echo -e "   ${YELLOW}🗜️  Compressing to CHD...${NC}"
-            chdman createcd -i "$OUTPUT_DIR/${CLEAN_NAME}.cue" -o "$OUTPUT_DIR/${CLEAN_NAME}.chd" >> "$LOG_FILE" 2>&1
+            chdman createcd -f -i "$OUTPUT_DIR/${CLEAN_NAME}.cue" -o "$OUTPUT_DIR/${CLEAN_NAME}.chd" >> "$LOG_FILE" 2>&1
             if [ -f "$OUTPUT_DIR/${CLEAN_NAME}.chd" ]; then
                 echo -e "${GREEN}✅ Created CHD: $OUTPUT_DIR/${CLEAN_NAME}.chd${NC}"
                 # Optional: rm "$OUTPUT_DIR/${CLEAN_NAME}.bin" "$OUTPUT_DIR/${CLEAN_NAME}.cue"
